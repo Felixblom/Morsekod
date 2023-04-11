@@ -5,16 +5,34 @@ import java.util.Scanner;
 
 public class Morsekod {
     public static String sentence;
-
+    public static String morsKod;
     public static void main(String[] args){
 
         Scanner scan = new Scanner(System.in);
 
-        sentence = scan.nextLine().toLowerCase();
+        while(true){
+            System.out.println("Skriv med bokstäver");
+            sentence = scan.nextLine().toLowerCase();
+            System.out.println("Skriv med morsekod");
+            morsKod = scan.nextLine();
 
-        Logiskt logik = new Logiskt();
+            if (sentence.isEmpty()){
+                System.out.println("Du skrev inga bokstäver");
 
-        System.out.println(logik.getTranslate(sentence));
+            } if(morsKod.isEmpty()){
+                System.out.println("Du skrev ingen morsekod");
+
+            }else{
+                Logiskt logik = new Logiskt();
+                System.out.println(logik.getTranslate(sentence));
+                System.out.println(logik.getMorse(morsKod));
+
+            }
+
+
+
+        }
+
 
     }
 }

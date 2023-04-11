@@ -4,10 +4,11 @@ import java.util.HashMap;
 public class Logiskt {
 
 
-     String[] mening = Morsekod.sentence.split("\\s+");
-
+     String[] mening = Morsekod.sentence.split("");
+     String[] mKod = Morsekod.morsKod.split(" ");
     private HashMap<String, String> koder;
-    public StringBuilder morse = new StringBuilder();
+    public StringBuilder sb = new StringBuilder();
+    public StringBuilder mb = new StringBuilder();
 
     public Logiskt(){
         koder = new HashMap<>();
@@ -23,14 +24,24 @@ public class Logiskt {
 
         for(int i=0; i<mening.length; i++){
             String character = String.valueOf(mening[i]);
-
             if(koder.containsKey(character)){
-
-               // String s = koder.get(character) + " ";
-                morse.append(koder.get(character)).append(" ");
+                sb.append(koder.get(character)).append(" ");
             }
+
         }
-        //System.out.println(morse);
+
+        for (int i = 0; i <mKod.length; i++){
+            String kod = String.valueOf(mKod[i]);
+            if(koder.containsKey(kod)){
+                mb.append(koder.get(kod)).append(" ");
+                //System.out.println(mb);
+        }
     }
-    public String getTranslate(String key){ return morse.toString() ;}
+
+
+
+
+}public String getTranslate(String key){ return sb.toString() ;}
+     public String getMorse(String key){ return mb.toString() ;}
 }
+
