@@ -10,16 +10,17 @@ public class Morsekod {
 
         Scanner scan = new Scanner(System.in);
 
+
         while(true){
             System.out.println("Skriv med bokstäver");
             sentence = scan.nextLine().toLowerCase();
             System.out.println("Skriv med morsekod");
             morsKod = scan.nextLine();
 
-            if (sentence.isEmpty()){
+            if (sentence.isEmpty()||sentence.matches("[*_\\-]+")){
                 System.out.println("Du skrev inga bokstäver");
 
-            } if(morsKod.isEmpty()){
+            } if(morsKod.isEmpty()||morsKod.matches("[a-zA-Z]+")){
                 System.out.println("Du skrev ingen morsekod");
 
             }else{
@@ -28,11 +29,6 @@ public class Morsekod {
                 System.out.println(logik.getMorse(morsKod));
 
             }
-
-
-
         }
-
-
     }
 }

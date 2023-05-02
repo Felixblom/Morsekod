@@ -6,9 +6,11 @@ public class Logiskt {
 
      String[] mening = Morsekod.sentence.split("");
      String[] mKod = Morsekod.morsKod.split(" ");
-    private HashMap<String, String> koder;
+    public static HashMap<String, String> koder;
     public StringBuilder sb = new StringBuilder();
     public StringBuilder mb = new StringBuilder();
+
+
 
     public Logiskt(){
         koder = new HashMap<>();

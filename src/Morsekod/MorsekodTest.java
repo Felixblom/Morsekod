@@ -9,31 +9,37 @@ import static org.junit.jupiter.api.Assertions.*;
 class MorsekodTest {
 
     @Test
-    void array(){
-        String[] array = {"a","b","c"};
+    void fel(){
 
-        assertEquals(3, array.length);
+    Morsekod.sentence = "";
+    String test = "";
+    if (Morsekod.sentence.isEmpty()){
+        test = "tomt";
+    }
+    assertTrue(test.contains("tomt"));
 
     }
 
     @Test
     void hashmap() {
-        HashMap<String, String> ord = new HashMap<>();
+
+        Logiskt.koder = new HashMap<>();
 
         String[] one = {"a","b","c"};
         String[] two ={"ett","två","tre"};
 
-        for(int i =0; i< ord.size();i++){
-            ord.put(one[i], two[i]);
-            ord.put(two[i], one[i]);
-            assertTrue(ord.containsKey("tre"));
-            assertTrue(ord.containsKey("c"));
+        for(int i =0; i< Logiskt.koder.size();i++){
+            Logiskt.koder.put(one[i], two[i]);
+            Logiskt.koder.put(two[i], one[i]);
+            assertTrue(Logiskt.koder.containsKey("tre"));
+            assertTrue(Logiskt.koder.containsKey("c"));
         }
     }
     @Test
     void split(){
-        String str = "hejsan";
-        String[] result = str.split("");
+
+        Morsekod.sentence = "hejsan";
+        String[] result = Morsekod.sentence.split("");
         assertEquals(6, result.length);
         assertEquals("h", result[0]);
         assertEquals("e", result[1]);
@@ -42,4 +48,6 @@ class MorsekodTest {
         assertEquals("a", result[4]);
         assertEquals("n", result[5]);
     }
+
+
 }
